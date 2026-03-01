@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html, body, #app {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  width: max-content;
+  height: max-content;
+  overflow: hidden;
+  font-family: "CaskaydiaCove Nerd Font", monospace;
+}
+
+@theme {
+  --color-base: #1e1e2e;
+  --color-mantle: #181825;
+  --color-crust: #11111b;
+
+  --color-text: #cdd6f4;
+  --color-subtext0: #a6adc8;
+  --color-subtext1: #bac2de;
+
+  --color-surface0: rgba(22, 25, 37, 0.9);
+  --color-surface1: #45475a;
+  --color-surface2: #585b70;
+  --color-surface3: #394161;
+
+  --color-overlay0: #6c7086;
+  --color-overlay1: #7f849c;
+  --color-overlay2: #9ba3c3;
+
+  --color-blue: #89b4fa;
+  --color-lavender: #b4befe;
+  --color-sapphire: #74c7ec;
+  --color-sky: #89dceb;
+  --color-teal: #94e2d5;
+  --color-green: #a6e3a1;
+  --color-yellow: #f9e2af;
+  --color-peach: #fab387;
+  --color-maroon: #eba0ac;
+  --color-red: #f38ba8;
+  --color-mauve: #cba6f7;
+  --color-pink: #f5c2e7;
+  --color-flamingo: #f2cdcd;
+  --color-rosewater: #f5e0dc;
+}
+
+@theme {
+  --font-mono: "CaskaydiaCove Nerd Font", monospace;
+}
+
+@import "./gradients.css"
