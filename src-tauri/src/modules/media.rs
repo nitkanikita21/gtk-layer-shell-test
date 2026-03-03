@@ -4,9 +4,11 @@ use anyhow::Result;
 use mpris::{DBusError, Metadata, PlaybackStatus, PlayerFinder, Player, LoopStatus};
 use serde::Serialize;
 use tauri::command;
+use ts_rs::TS;
 use std::time::Duration;
 
-#[derive(Serialize)]
+#[derive(Serialize, TS)]
+#[ts(export)]
 pub struct MediaInfo {
   pub title: Option<String>,
   pub artist: Option<String>,

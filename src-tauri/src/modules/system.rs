@@ -1,5 +1,6 @@
 use once_cell::sync::Lazy;
 use serde::Serialize;
+use ts_rs::TS;
 use std::{
   sync::RwLock,
   time::{Duration, Instant},
@@ -8,7 +9,8 @@ use sysinfo::{Disks, Networks, System};
 use tauri::command;
 use tokio::time::sleep;
 
-#[derive(Serialize, Clone)]
+#[derive(Serialize, Clone, TS)]
+#[ts(export)]
 pub struct SystemInfo {
   pub cpu_used: f32,
   pub disk_used: u64,
@@ -77,7 +79,7 @@ pub fn get_system_info() -> anyhow::Result<SystemInfo, anyhow_serde::Error> {
   // Мережа — обчислюємо згладжену швидкість
   let (net_in, net_out) = calculate_smoothed_net_speed();
 
-  println!("both{} in{} out{}", net_in + net_out, net_in, net_out);
+  // println!("both{} in{} out{}", net_in + net_out, net_in, net_out);
 
   Ok(SystemInfo {
     cpu_used: sys.global_cpu_usage(),

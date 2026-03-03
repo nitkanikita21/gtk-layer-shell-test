@@ -13,10 +13,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
+    "noUnusedLocals": false,
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },

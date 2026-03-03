@@ -75,7 +75,13 @@ pub fn run() {
       modules::media::media_previous,
       modules::media::media_stop,
       modules::media::media_set_volume,
-      modules::media::media_toggle_play_pause
+      modules::media::media_toggle_play_pause,
+      
+      modules::workspaces::get_workspaces,
+      modules::workspaces::get_active_workspace,
+      modules::workspaces::switch_to_workspace,
+      modules::workspaces::move_window_to_workspace,
+      modules::workspaces::get_clients,
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

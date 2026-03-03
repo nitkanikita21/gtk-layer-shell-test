@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref, watch, watchEffect } from 'vue';
-import Chip from './Chip.vue';
 import { useQuery } from '@tanstack/vue-query';
 import { invoke } from '@tauri-apps/api/core';
+import Chip from '../Chip.vue';
 
 const mediaInfo = useQuery({
   queryFn: async () => await invoke<any>("get_media_info"),
@@ -24,7 +24,7 @@ async function toggle() {
 
 
 const icon = computed(() => {
-  if(!mediaInfo.data.value)return ""
+  if (!mediaInfo.data.value) return ""
   switch (mediaInfo.data.value.status as 'Playing' | 'Paused' | 'Stopped') {
     case 'Paused':
       return ""
@@ -34,11 +34,11 @@ const icon = computed(() => {
       return ""
   }
 })
-
 </script>
 
 <template>
-  <Chip v-if="mediaInfo.data.value" @click="toggle" :class="{ 'gradient-cycle-wall': mediaInfo.data.value.status == 'Playing' }" class="max-w-xs ">
+  <Chip v-if="mediaInfo.data.value" @click="toggle"
+    :class="{ 'gradient-cycle-wall': mediaInfo.data.value.status == 'Playing' }" class="max-w-xs ">
     <div :class="{ 'text-white text-shadow-xs': mediaInfo.data.value.status == 'Playing' }" class="text-mauve truncate">
       {{ icon }} {{ mediaInfo.data.value.artist }} - {{ mediaInfo.data.value.title }}
     </div>

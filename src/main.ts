@@ -9,4 +9,5 @@ const pinia = createPinia();
 app.use(pinia);
 app.use(VueQueryPlugin, { queryClient });
 
+
 app.mount("#app");
